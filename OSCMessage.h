@@ -55,6 +55,9 @@ private:
 	//error codes for potential runtime problems
 	OSCErrorCode error;
 
+	//user provided context
+	void * context;
+
 /*=============================================================================
     DECODING INCOMING BYTES
  =============================================================================*/
@@ -103,6 +106,9 @@ public:
 
 	//returns the OSCData at that position
 	OSCData * getOSCData(int);
+
+	void * getContext() const { return context; }
+	void setContext(void * c) { context = c; }
 
 /*=============================================================================
 	CONSTRUCTORS / DESTRUCTOR

@@ -55,6 +55,7 @@ OSCMessage::OSCMessage(const char * _address, char * types, ... ){
 
 //sets up a new message
 void OSCMessage::setupMessage(){
+	context = NULL;
 	address = NULL;
 	//setup the attributes
 	dataCount = 0;
@@ -103,6 +104,7 @@ OSCMessage& OSCMessage::empty(){
 OSCMessage::OSCMessage(OSCMessage * msg){
 	//start with a message with the same address
     setupMessage();
+    context = msg->context;
     setAddress(msg->address);
 	//add each of the data to the other message
 	for (int i = 0; i < msg->dataCount; i++){
